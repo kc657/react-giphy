@@ -1,17 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-class Results extends Component{
-  render() {
+class Results extends Component {
+  render () {
+    console.log(this.props.searchResults)
     return (
-      <div className="Results">
+      <div className='Results'>
         {this.props.searchResults.map((item, index) => (
-            <div key={item.id}>
-              <img
-                className="img-thumbnail"
-                src={item.images.fixed_height.url}
+          <div key={item.id}>
+            <img
+              className='img-thumbnail'
+              src={item.images.fixed_height.url}
               />
-              <p>Source: <a href={item.source}>{item.source}</a></p>
-            </div>
+            <p>Source: <a href={item.source}>{item.source}</a></p>
+          </div>
           )
         )}
       </div>
@@ -19,4 +20,4 @@ class Results extends Component{
   }
 };
 
-export default Results;
+export default Results

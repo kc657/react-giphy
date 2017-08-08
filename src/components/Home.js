@@ -5,9 +5,9 @@ import Header from './Header.js'
 import SearchContainer from './SearchContainer.js'
 
 class HomePage extends Component {
-  render() {
+  render () {
     return (
-      <div className = 'home'>
+      <div className='home'>
         <HelloWorld />
         <Header />
         <SearchContainer />

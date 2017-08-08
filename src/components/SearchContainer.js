@@ -13,7 +13,6 @@ class SearchContainer extends Component {
   }
 
   handleChange (event) {
-    console.log('change')
     this.setState({query: event.target.value})
   }
 
@@ -21,18 +20,20 @@ class SearchContainer extends Component {
     event.preventDefault()
     const giphyApiData = {
       method: 'GET',
-      api_key: 'dc6zaTOxFJmzC',
+      api_key: 'dc6zaTOxFJmzC', // 919b5d9be5f245b7b54926622b52df9e
       q: this.state.query,
       headers: {}
     }
-    console.log(giphyApiData)
-    fetch('http://api.giphy.com/v1/gifs/search', giphyApiData)
+
+    fetch('http://api.giphy.com/v1/gifs/search?api_key=' + giphyApiData.api_key + '&q=' + giphyApiData.q)
     .then(response => response.json())
-    .then(json => this.setState({
-      results: json,
-      searched: true
+    .then((test) => {
+      this.setState({
+        results: test.data,
+        query: this.state.query,
+        searched: true
       })
-    )
+    })
   }
 
   render () {
